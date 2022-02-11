@@ -1,3 +1,3 @@
-from hello_world import hello
+from hello_world import greetings as grt
 
-hello()
+grt.hello()
