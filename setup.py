@@ -11,9 +11,9 @@ with open('requirements.txt') as f:
     required = f.read()
 
 setup(
-    name='python-package-template',
+    name='python_package_template',
     version='0.0.1',
-    description='python-package-template',
+    description='python_package_template',
     long_description=readme,
     author='Manuel Castillo-Lopez',
     author_email='manucalop@gmail.com',
