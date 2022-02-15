@@ -1,5 +1,5 @@
 import unittest
-from hello_world import greetings as grt
+from python_package_template import greetings as grt
 
 class TestSpreadsheetApi(unittest.TestCase):
     def test_hello(self):
