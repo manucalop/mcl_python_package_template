@@ -1,1 +1,1 @@
-# Python project template
+# python_package_template

@@ -11,13 +11,13 @@ with open('requirements.txt') as f:
     required = f.read()
 
 setup(
-    name='hello-world',
+    name='python-package-template',
     version='0.0.1',
-    description='Send publi email package',
+    description='python-package-template',
     long_description=readme,
     author='Manuel Castillo-Lopez',
-    author_email='manuel@the-cocktail.com',
-    url='https://github.com/manucalop/cocktail_bootcamp',
+    author_email='manucalop@gmail.com',
+    url='https://github.com/manucalop/python_package_template',
     license=lic,
     packages=find_packages(exclude=('tests', 'docs')),
     install_requires=required
