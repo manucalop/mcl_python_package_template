@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    name: pytests
 
     runs-on: ubuntu-latest
 
