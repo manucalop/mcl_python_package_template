@@ -1,4 +1,4 @@
-# python_package_template
+# mcl_python_package_template
 
 To publish, execute
 ```bash
