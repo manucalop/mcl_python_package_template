@@ -1,5 +1,5 @@
 import unittest
-from python_package_template.config import config
+from mcl_python_package_template.config import config
 
 
 class TestConfig(unittest.TestCase):
