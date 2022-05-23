@@ -1,6 +1,6 @@
 FROM python:3.9-slim
 
-ENV APP_NAME python_package_template
+ENV APP_NAME mcl_python_package_template
 ENV WD /opt/${APP_NAME}
 
 # Setup working directory

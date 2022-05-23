@@ -1,4 +1,4 @@
-from python_package_template import greetings as grt
+from mcl_python_package_template import greetings as grt
 
 if __name__ == "__main__":
     grt.hello()

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-SERVICE_NAME="python_package_template"
+SERVICE_NAME="mcl_python_package_template"
 PORT=3000
 
 function docker_build(){
