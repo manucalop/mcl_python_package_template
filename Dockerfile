@@ -1,33 +1,23 @@
-FROM python:3.9-slim
+FROM python:3.9-slim 
 
-ENV APP_NAME mcl_python_package_template
-ENV WD /opt/${APP_NAME}
+# Allow statements and log messages to immediately appear in the Knative logs
+ENV PYTHONUNBUFFERED True
 
-# Setup working directory
-RUN mkdir -p ${WD}
-WORKDIR ${WD}
+ENV APP_HOME /app
+WORKDIR ${APP_HOME}
 
-# RUN pip install --user pipenv
-RUN pip install pipenv
+RUN pip3 install poetry
+RUN poetry config virtualenvs.create false
 
-# Tell pipenv to create venv in the current directory
-ENV PIPENV_VENV_IN_PROJECT=1
+# add and install python requirements
+COPY pyproject.toml ./
+COPY poetry.lock ./
+RUN poetry install --no-dev
 
-COPY Pipfile ./
-COPY Pipfile.lock ./
-RUN pipenv install --deploy --clear
+COPY . ./
 
+# ENV PORT 5000
 
-# Copy app files
-COPY ./${APP_NAME}/ ${WD}/${APP_NAME}/
-COPY tests ./tests
-COPY entrypoint.bash\
-    *.yaml\
-    *.json\
-    ./
-
-
-ENV PORT 3000
 EXPOSE $PORT
 
-ENTRYPOINT pipenv run ./entrypoint.bash
+CMD exec poetry run gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 main:app
