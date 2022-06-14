@@ -105,6 +105,7 @@ function docker_deploy(){
         --region ${LOCATION} \
         --port ${PORT} \
         --no-allow-unauthenticated
+    SERVICE_URL=$(gcloud run services describe ${SERVICE_NAME} --format='value(status.address.url)')
 }
 
 function setup_scheduler_service_account(){
@@ -116,10 +117,14 @@ function setup_scheduler_service_account(){
        --display-name "Scheduler Service Account" \
        --project=${PROJECT_ID}
 
+    gcloud projects add-iam-policy-binding ${PROJECT_ID} \
+        --member serviceAccount:${SERVICE_ACCOUNT}@${PROJECT_ID}.iam.gserviceaccount.com \
+        --role roles/run.invoker
+
     # Give cloud run invoker role to the scheduler service account
-    gcloud run services add-iam-policy-binding ${SERVICE_NAME} \
-       --member serviceAccount:${SCHEDULER_SERVICE_ACCOUNT}@${PROJECT_ID}.iam.gserviceaccount.com \
-       --role=roles/run.invoker
+    # gcloud run services add-iam-policy-binding ${SERVICE_NAME} \
+    #    --member serviceAccount:${SCHEDULER_SERVICE_ACCOUNT}@${PROJECT_ID}.iam.gserviceaccount.com \
+    #    --role=roles/run.invoker
 }
 
 function create_scheduler(){
