@@ -1,4 +1,5 @@
-from mcl_python_package_template import greetings as grt
+from mcl_python_package_template.app import App
 
 if __name__ == "__main__":
-    grt.hello()
+    app = App()
+    app.run()

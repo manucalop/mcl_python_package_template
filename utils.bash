@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
 LOCATION=europe-west1
-SERVICE_NAME=ga2bq
-# PROJECT_ID='sandbox-data-engineering'
-PROJECT_ID='data-upsa'
+SERVICE_NAME=mcl_python_package_template
+PROJECT_ID='manucalop'
 PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format='get(projectNumber)')
 REPOSITORY_NAME="docker-repository"
 ROOT_PATH="${LOCATION}-docker.pkg.dev"
 IMAGE_NAME="${SERVICE_NAME}"
 IMAGE_FULL_PATH="${ROOT_PATH}/${PROJECT_ID}/${REPOSITORY_NAME}/${IMAGE_NAME}"
-SERVICE_ACCOUNT=etl-service-account
+SERVICE_ACCOUNT=mcl_python_package_template-service-account
 SCHEDULER_SERVICE_ACCOUNT=scheduler-service-account
 PORT=5000   
 
