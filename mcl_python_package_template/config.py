@@ -1,15 +1,16 @@
 import pydantic
-import yaml
+from pyaml_env import parse_config
+
+from mcl_python_package_template.logging import get_logger
+
+logger = get_logger(__name__)
 
 
 class Config(pydantic.BaseModel):
-    foo: str
-    bar: int
-
-    @classmethod
-    def from_yaml(cls, yaml_file):
-        with open(yaml_file, "r") as f:
-            return cls(**yaml.safe_load(f))
+    env_name: str
 
 
-config = Config.from_yaml("config.yaml")
+def get_config(config_file: str) -> Config:
+    logger.info(f"Loading config from {config_file}...")
+    config = Config(**parse_config(config_file))
+    return config
