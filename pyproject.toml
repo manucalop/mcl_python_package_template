@@ -1,10 +1,9 @@
 [tool.poetry]
-name = "mcl_python_package_template"
-version = "0.1.1"
-description = "The mcl_python_package_template package"
+name = "mcl-python-package-template"
+version = "0.1.2"
+description = ""
+authors = ["Manuel Castillo-Lopez <manucalop@gmail.com>"]
 readme = "README.md"
-license = "MIT"
-authors = ["Manuel Castillo <manucalop@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.11"

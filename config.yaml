@@ -1,2 +1,1 @@
-foo: 'foo'
-bar: 2
+env_name: !ENV ${ENV_NAME}
