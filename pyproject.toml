@@ -6,14 +6,11 @@ authors = ["Manuel Castillo-Lopez <manucalop@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.9"
-pyaml-env = "^1.2.1"
-pydantic = "^1.10.2"
-
+python = ">=3.10,<3.11"
+pyyaml = "^6.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^7.2.0"
-flake8 = "^6.0.0"
+pytest = "^7.1.2"
 
 [build-system]
 requires = ["poetry-core"]
